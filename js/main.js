@@ -1,12 +1,16 @@
 //possible holidays
 
 var holidayNames = ['Valentines Day', 'Halloween', 'July 4', 'Christmas', 'Thanksgiving', 'St Patricks Day'];
-console.log(holidayNames);
+
+for (var i = 0; i < holidayNames.length; i++) {
+    console.log(holidayNames[i]);
+  }
 
 //possible SVGS (make objects)
 
 var valentinesDay = {
     'image': img.src = './images/heart.svg',
+    'lenth': "_ _ _ _ _ _ _ _ _ _"
 }
 
 //computer choose SVG and name holiday -- outputs to user

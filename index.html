@@ -7,16 +7,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./css/reset.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
-    <script src="main.js"></script>
+    <!-- <script src="main.js"></script> -->
 </head>
 <body>
     <h1>Holidays Hangman</h1>
 
     <div>press a key to guess</div>
+    <div id="computer"></div>
     <div>you've guessed:</div>
     <div>guesses left:</div>
     <div>wins</div>
     <div>loses</div>
+
+    <script>
+    
+    //possible holidays
+
+let holidayNames = ['Valentines Day', 'Halloween', 'July 4', 'Christmas', 'Thanksgiving', 'St Patricks Day'];
+
+for (var i = 0; i < holidayNames.length; i++) {
+    console.log(holidayNames[i]);
+  }
+
+//possible SVGS and _ _ _ _ (make objects?)
+
+let christmas = {
+    'image': img.src = './images/santa.svg',
+    'length': "_ _ _ _ _ _ _ _ _",
+}
+console.log(christmas.image)
+
+//computer choose SVG and name holiday -- outputs to user
+
+let computerGuess = holidayNames[Math.floor(Math.random() * holidayNames.length)];
+
+//display _ _ _ with number of letters in holiday
+
+//user can press any key to start
+//records Letters Already Guessed:
+
+//if user guesses correctly fill in display _ _ _ 
+//else Number of Guesses Remaining:10, counting down
+
+//if user guesses correctly, count up wins
+//else count up loses
+    
+    </script>
     
 </body>
 </html>
