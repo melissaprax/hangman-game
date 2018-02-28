@@ -1,6 +1,7 @@
 //possible holidays
 
 var holidayNames = ['Valentines Day', 'Halloween', 'July 4', 'Christmas', 'Thanksgiving', 'St Patricks Day'];
+console.log(holidayNames);
 
 //possible SVGS (make objects)
 
@@ -8,10 +9,6 @@ var valentinesDay = {
     'image': img.src = './images/heart.svg',
 }
 
-document.onkeyup = function(event) {
-    // Determines which key was pressed.
-    var userGuess = event.key;
-}
 //computer choose SVG and name holiday -- outputs to user
 
 var computerGuess = holidayNames[Math.floor(Math.random() * holidayNames.length)];
