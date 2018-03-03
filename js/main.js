@@ -53,7 +53,10 @@
     
         if (computerGuess.name.indexOf(userGuess) != -1) {
         console.log(true);
-    } } 
+
+    } 
+    
+} 
 
     //if else Christmas 
 
