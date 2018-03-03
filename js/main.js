@@ -3,19 +3,19 @@
 
     let holidayNames = [
         {
-            name: 'Christmas',
+            name: 'christmas',
             length: 9,
         },
         {
-            name: 'St Patricks',
+            name: 'st patricks',
             length: 11,
         },
         {
-            name: 'Halloween',
+            name: 'halloween',
             length: 9,
         },
         {
-            name: 'Thanksgiving',
+            name: 'thanksgiving',
             length: 12,
         }
     ]
@@ -35,27 +35,51 @@
         let dashGuess = [];
           
     
-    //computer choose SVG and name holiday -- outputs to user
+    //computer choose name holiday -- logs to console
 
-
-    //let pickHoliday = function() {
     let computerGuess = holidayNames[Math.floor(Math.random() * holidayNames.length)];
     console.log(computerGuess);
-    //document.getElementById("computer").innerHTML = computerGuess;
-    //}
+
+    let computerWord = computerGuess.name
     
+    //user can press any key to start
+    //records Letters Already Guessed:
+    document.onkeyup = function(event) {
+        // to determine which key was pressed.
+        let userGuess = event.key.toLowerCase();
+        //outputs to site
+        document.getElementById("user").innerHTML = userGuess;
+
+    
+        if (computerGuess.name.indexOf(userGuess) != -1) {
+        console.log(true);
+    } } 
+
+    //if else Christmas 
+
+    // if (computerGuess === 'Christmas' && userGuess === 'c', 'h', 'r', 'i', 's', 't', 'm', 'a', 's') {
+    //     document.getElementById("wins").innerHTML = wins + 1;
+    // }
+    // else {
+    //     document.getElementById('loses').innerHTML = loses - 1;
+    // }
+    // //St Patricks
+    // if (computerGuess === 'St Patricks' && userGuess === 's', 't', 'p', 'a', 't', 'r', 'i', 'c', 'k', 's') {
+    //     document.getElementById("wins").innerHTML = wins + 1;
+    // }
+    // else {
+    //     document.getElementById('loses').innerHTML = loses - 1;
+    // }
+    //if user guesses a letter correctly guesses go unchanged
+
+    //if not guesses goes down by 1
+
+    //if guesses go down by 10, loses go up by 1
+
+    //if user guesses all letters correctly, wins go up by one
 
     //display _ _ _ with number of letters in holiday
     
-    //user can press any key to start
-
-    document.onkeyup = function(event) {
-        // to determine which key was pressed.
-        let userGuess = event.key;
-        //outputs to site
-        document.getElementById("user").innerHTML = userGuess;
-    }  
-    //records Letters Already Guessed:
 
     
 
