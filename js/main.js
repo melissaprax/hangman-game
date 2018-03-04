@@ -28,7 +28,7 @@
 
         let wins = 0;
         let losses = 0;
-        let guessesLeft = 10;
+        let guessesLeft = 20;
 
     // for dashes
 
@@ -40,23 +40,49 @@
     let computerGuess = holidayNames[Math.floor(Math.random() * holidayNames.length)];
     console.log(computerGuess);
 
-    let computerWord = computerGuess.name
+    for (let i = 0; i < computerGuess.length; i++) {
+        document.getElementById("computer").HTML = dashGuess.push("_");
+        
+      }
+
+
+    //let computerWord = computerGuess.name
     
     //user can press any key to start
     //records Letters Already Guessed:
     document.onkeyup = function(event) {
         // to determine which key was pressed.
-        let userGuess = event.key.toLowerCase();
+       let userGuess = event.key.toLowerCase();
         //outputs to site
-        document.getElementById("user").innerHTML = userGuess;
-
+       document.getElementById("user").innerHTML = userGuess;
     
         if (computerGuess.name.indexOf(userGuess) != -1) {
-        console.log(true);
+          document.getElementById("computer").innerHTML = userGuess;
+        }
+    else {
+      console.log(false);
+   }
+    if (userGuess === computerGuess) {
+    document.getElementById("wins").HTML = wins++;
+    }
+    else {
+     losses++;
+    }
 
-    } 
-    
-} 
+    //dashGuess[guessIndex] = userKey;
+      
+      if (computerChoice.indexOf(userGuess) > -1) {
+          guessIndex = computerGuess.indexOf(userKey);
+        }
+        
+      console.log(guessIndex);
+      
+      
+      dashGuessStr = dashGuess.join(" ");
+      
+      console.log(dashGuess);
+
+} //to end event DON'T DELETE 
 
     //if else Christmas 
 
