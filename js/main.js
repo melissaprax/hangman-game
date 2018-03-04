@@ -43,9 +43,6 @@
     //computer outputs _ _ _ length of holiday it chose
 
     for (let i = 0; i < computerGuess.length; i++) {
-        //document.getElementById("computer").HTML = dashGuess.push("_");
-        //console.log(dashGuess.CharAt("_"));
-        //document.getElementById("computer").HTML = dashGuess += '_';
         console.log(dashGuess += '_ '); //THIS WORKS!
         document.getElementById("computer").innerHTML = dashGuess += '_ ';
       }
@@ -54,7 +51,6 @@
     //let computerWord = computerGuess.name
     
     //user can press any key to start
-    //records Letters Already Guessed:
     document.onkeyup = function(event) {
         // to determine which key was pressed.
        let userGuess = event.key.toLowerCase();
@@ -67,6 +63,24 @@
     else {
       console.log(false);
    }
+
+   //fill in user's guess to  _ _ _ in specific index position 
+   //records Letters Already Guessed:
+
+   if (computerChoice.indexOf(userGuess) > -1) {
+    guessIndex = computerChoice.indexOf(userGuess);
+  }
+  
+console.log(guessIndex);
+
+dashGuess[guessIndex] = userKey;
+
+dashGuessStr = dashGuess.join(" ");
+
+console.log(dashGuess);
+
+
+   //makings wins and losses go up
     if (userGuess === computerGuess) {
     document.getElementById("wins").HTML = wins++;
     }
@@ -74,18 +88,7 @@
      losses++;
     }
 
-    //dashGuess[guessIndex] = userKey;
-      
-      if (computerChoice.indexOf(userGuess) > -1) {
-          guessIndex = computerGuess.indexOf(userKey);
-        }
-        
-      console.log(guessIndex);
-      
-      
-      dashGuessStr = dashGuess.join(" ");
-      
-      console.log(dashGuess);
+
 
 } //to end event DON'T DELETE 
 
