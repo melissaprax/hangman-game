@@ -24,7 +24,7 @@
             console.log(holidayNames[i]);
           }
         
-    // set variables for wins
+    // set variables for wins, losses and guesses 
 
         let wins = 0;
         let losses = 0;
@@ -35,16 +35,21 @@
         let dashGuess = [];
           
     
-    //computer choose name holiday -- logs to console
+    //computer choose name holiday 
 
     let computerGuess = holidayNames[Math.floor(Math.random() * holidayNames.length)];
     console.log(computerGuess);
 
-    for (let i = 0; i < computerGuess.length; i++) {
-        document.getElementById("computer").HTML = dashGuess.push("_");
-        
-      }
+    //computer outputs _ _ _ length of holiday it chose
 
+    for (let i = 0; i < computerGuess.length; i++) {
+        //document.getElementById("computer").HTML = dashGuess.push("_");
+        //console.log(dashGuess.CharAt("_"));
+        //document.getElementById("computer").HTML = dashGuess += '_';
+        console.log(dashGuess += '_ '); //THIS WORKS!
+        document.getElementById("computer").innerHTML = dashGuess += '_ ';
+      }
+    
 
     //let computerWord = computerGuess.name
     
