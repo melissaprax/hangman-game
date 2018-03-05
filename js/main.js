@@ -47,9 +47,6 @@
         document.getElementById("computer").innerHTML = dashGuess += '_ ';
       }
     
-    
-   // let computerWord = computerGuess.name
-    
     //user can press any key to start
     document.onkeyup = function(event) {
         // to determine which key was pressed.
@@ -59,17 +56,27 @@
     
         if (computerGuess.name.indexOf(userGuess) != -1) {
           document.getElementById("computer").innerHTML = userGuess;
-          let guessIndex = computerGuess.name.indexOf(userGuess);
-          console.log(guessIndex);
+        //  let guessIndex = computerGuess.name.indexOf(userGuess);
+        //  console.log(guessIndex);
         }
    
 
-   //fill in user's guess to  _ _ _ in specific index position 
+   //fill in user's guess to  _ _ _ specific position 
    //records Letters Already Guessed:
    
+let leftOvers = computerGuess.name
 
+while (leftOvers > 0) {
+    let attempt = document.getElementById("computer");
+    attempt.innerHTML = dashGuess.join(" ");
 
-
+    for (let j = 0; j < computerGuess.name; j++) {
+        if (computerGuess(j) === userGuess){
+            dashGuess[j] = userGuess;
+            leftOvers--;
+        }
+    }
+}
 
    //if (computerGuess.indexOf(userGuess) > -1) {
   //  guessIndex = computerGuess.indexOf(userGuess);
