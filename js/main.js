@@ -27,30 +27,38 @@
         let losses = 0;
         let guessesLeft = 20;
 
+
     // for dashes
 
         let dashGuess = [];
+
 
          //computer choose name holiday 
 
     let computerGuess = holidayNames[Math.floor(Math.random() * holidayNames.length)].name;
     console.log(computerGuess);
 
+    //computer outputs _ _ _ length of holiday it chose
 
         for (let i = 0; i < computerGuess.length; i++) {
-            dashGuess.push("_");
+            //dashGuess.push("_"); THIS WORKS
+            document.getElementById("computer").innerHMTL = dashGuess.push("_");
         }
 
           var dashGuessStr = dashGuess.join(" ");
         
  //user can press any key to start
+
  document.onkeyup = function(event) {
     // to determine which key was pressed.
+
    let userGuess = event.key.toLowerCase();
 
     //outputs to site
    document.getElementById("user").innerHTML = userGuess;
+
    console.log(computerGuess)
+
     if (computerGuess.indexOf(userGuess) > -1) {
         console.log("correct guess")
         //change dash guess to show to correct letter in the correct position
@@ -61,8 +69,15 @@
     else {
         console.log("incorrect")
     }
+    if (computerGuess.indexOf(userGuess) === true) {
+        console.log(wins++)
+    }
+    else {
+        console.log(losses++)
+    }
  }
 
+ 
     
 
 //     //computer outputs _ _ _ length of holiday it chose
