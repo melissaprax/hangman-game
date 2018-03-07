@@ -1,0 +1,13 @@
+.fl {
+   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+};
+.fs-30px {
+    font-size: 3em;
+}
+.fs-40px {
+    font-size: 2.5em;
+}
+
+.grad {
+    background: linear-gradient(to bottom, rgba(254,202,118,1) 26%, rgba(245,239,152,1) 100%);
+}
