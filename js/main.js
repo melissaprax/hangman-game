@@ -1,83 +1,126 @@
    
     //possible holidays
 
-    let holidayNames = [
+    let emojiNames = [
         {
-            name: 'christmas',
-            length: 9,
+            name: 'smile',
+            length: 5,
         },
         {
-            name: 'st patricks',
-            length: 11,
+            name: 'heart',
+            length: 5,
         },
         {
-            name: 'halloween',
-            length: 9,
+            name: 'fire',
+            length: 4,
         },
         {
-            name: 'thanksgiving',
-            length: 12,
+            name: 'dog',
+            length: 3,
+        },
+        {
+            name: 'flag',
+            length: 4,
+        },
+        {
+            name: 'clap',
+            length: 4,
+        },
+        {
+            name: 'cat',
+            length: 3,
         }
+        
     ]
-
    
     // set variables for wins, losses and guesses 
 
         let wins = 0;
         let losses = 0;
-        let guessesLeft = 20;
+        let guessesLeft = emojiNames.length +3;
+        
 
 
-    // for dashes
+    // variable for dashes
 
         let dashGuess = [];
 
+    // set variables to get elements from HTML 
 
-         //computer choose name holiday 
+        let idComputer = document.getElementById("computer");
+        let idUser = document.getElementById("user");
+        let idWins = document.getElementById("wins");
+        let idLosses = document.getElementById("losses");
 
-    let computerGuess = holidayNames[Math.floor(Math.random() * holidayNames.length)].name;
-    console.log(computerGuess);
+    //computer choose name holiday 
+
+        let computerGuess = emojiNames[Math.floor(Math.random() * emojiNames.length)].name;
+            console.log(computerGuess);
+
+        let counter = computerGuess.length -1;
 
     //computer outputs _ _ _ length of holiday it chose
 
         for (let i = 0; i < computerGuess.length; i++) {
             //dashGuess.push("_"); THIS WORKS
-            document.getElementById("computer").innerHMTL = dashGuess.push("_");
+            //document.getElementById("computer").innerHMTL = dashGuess.push("_");
+            dashGuess.push("_").idComputer
         }
 
           var dashGuessStr = dashGuess.join(" ");
         
- //user can press any key to start
+    //user can press any key to start
 
- document.onkeyup = function(event) {
+        document.onkeyup = function userTry (event) {
+    
     // to determine which key was pressed.
 
-   let userGuess = event.key.toLowerCase();
+        let userGuess = event.key.toLowerCase();
+        console.log(counter--)
+        console.log(guessesLeft--) 
 
     //outputs to site
-   document.getElementById("user").innerHTML = userGuess;
+        document.getElementById("user").innerHTML = userGuess;
 
-   console.log(computerGuess)
-
-    if (computerGuess.indexOf(userGuess) > -1) {
-        console.log("correct guess")
-        //change dash guess to show to correct letter in the correct position
-        let correctIndex = computerGuess.indexOf(userGuess);
-        dashGuess[correctIndex] = userGuess;
-        console.log(dashGuess)
-    }
-    else {
-        console.log("incorrect")
-    }
-    if (computerGuess.indexOf(userGuess) === true) {
-        console.log(wins++)
-    }
-    else {
-        console.log(losses++)
-    }
+        if (computerGuess.indexOf(userGuess) > -1) {
+            console.log("correct guess")
+    //change dash guess to show to correct letter in the correct position
+            let correctIndex = computerGuess.indexOf(userGuess);
+            dashGuess[correctIndex] = userGuess;
+                console.log(dashGuess)
+        }
+        else {
+            console.log("incorrect")
+        }
  }
 
- 
+//once the word has 0 letters left, then wins and losses can go up / down accordingly
+//need to get losses to update in console after guesses run out
+//need to get wins to update in console after counter runs out
+    function countDown () {
+        if (guessesLeft = 0) {
+        console.log("losses" + losses++)
+    } }
+
+
+    if (counter <= 0) {
+    console.log("wins" + wins++)
+}
+
+
+//  let leftOvers = computerGuess.length
+
+// while (leftOvers > 0) {
+//   idComputer = dashGuess.join(" ");
+
+//     for (let i = 0; i < computerGuess.length; i++) {
+//     if (computerGuess[i] === userTry){
+//     dashGuess[i] = userTry;
+//     leftOvers--;
+//     console.log("wins " + wins++)
+//      }
+//     }
+// }
     
 
 //     //computer outputs _ _ _ length of holiday it chose
