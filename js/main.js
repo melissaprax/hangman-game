@@ -5,107 +5,114 @@
         {
             name: 'smile',
             length: 5,
+            pic: '../images/smile.png'
         },
         {
             name: 'heart',
             length: 5,
+            pic: '../images/heart.png'
         },
         {
             name: 'fire',
             length: 4,
+            pic: '../images/fire.png'
         },
         {
             name: 'dog',
             length: 3,
+            pic: '../images/dog.png'
         },
         {
             name: 'flag',
             length: 4,
+            pic: '../images/flag.png'
         },
         {
             name: 'clap',
             length: 4,
+            pic: '../images/clap.png'
         },
         {
             name: 'cat',
             length: 3,
+            pic: '../images/cat.png'
         }
         
     ]
    
-    // set variables for wins, losses and guesses 
-
+        // set variables for wins, losses and guesses 
         let wins = 0;
         let losses = 0;
         let guessesLeft = emojiNames.length +3;
         
-
-
-    // variable for dashes
-
+        // variable for dashes
         let dashGuess = [];
 
-    // set variables to get elements from HTML 
-
+        // set variables to get elements from HTML 
         let idComputer = document.getElementById("computer");
         let idUser = document.getElementById("user");
         let idWins = document.getElementById("wins");
         let idLosses = document.getElementById("losses");
 
-    //computer choose name holiday 
-
+        //computer choose name holiday 
         let computerGuess = emojiNames[Math.floor(Math.random() * emojiNames.length)].name;
             console.log(computerGuess);
-
+        
         let counter = computerGuess.length -1;
 
-    //computer outputs _ _ _ length of holiday it chose
-
+        //computer outputs _ _ _ length of holiday it chose
         for (let i = 0; i < computerGuess.length; i++) {
             //dashGuess.push("_"); THIS WORKS
             //document.getElementById("computer").innerHMTL = dashGuess.push("_");
             dashGuess.push("_").idComputer
         }
 
-          var dashGuessStr = dashGuess.join(" ");
+        // var dashGuessStr = dashGuess.join(" ");
         
-    //user can press any key to start
+        //user can press any key to start
 
         document.onkeyup = function userTry (event) {
-    
-    // to determine which key was pressed.
+            // to determine which key was pressed.
+            let userGuess = event.key.toLowerCase();
+            // counter--;
+            guessesLeft--;
+            console.log(guessesLeft) 
 
-        let userGuess = event.key.toLowerCase();
-        console.log(counter--)
-        console.log(guessesLeft--) 
+            //outputs to site
+            document.getElementById("user").innerHTML = userGuess;
 
-    //outputs to site
-        document.getElementById("user").innerHTML = userGuess;
-
-        if (computerGuess.indexOf(userGuess) > -1) {
-            console.log("correct guess")
-    //change dash guess to show to correct letter in the correct position
-            let correctIndex = computerGuess.indexOf(userGuess);
-            dashGuess[correctIndex] = userGuess;
+            if (computerGuess.indexOf(userGuess) > -1) {
+                console.log("correct guess")
+                //change dash guess to show to correct letter in the correct position
+                let correctIndex = computerGuess.indexOf(userGuess);
+                dashGuess[correctIndex] = userGuess;
                 console.log(dashGuess)
+                counter--;
+                console.log(counter)
+                forWins ();
+                
+            } else {
+                console.log("incorrect")
+                countDown ();
+            }
         }
-        else {
-            console.log("incorrect")
-        }
- }
 
 //once the word has 0 letters left, then wins and losses can go up / down accordingly
 //need to get losses to update in console after guesses run out
 //need to get wins to update in console after counter runs out
-    function countDown () {
-        if (guessesLeft = 0) {
-        console.log("losses" + losses++)
-    } }
+        function countDown () {
+            if (guessesLeft = 0) {
+            console.log("losses" + losses++)
+            idLosses.innerHTML = losses++
+            } 
+        }
 
-
-    if (counter <= 0) {
-    console.log("wins" + wins++)
-}
+        function forWins (){
+            if (counter <= 0) {
+            console.log("wins " + wins++)
+            idWins.innerHTML = wins++
+            }
+        }
 
 
 //  let leftOvers = computerGuess.length
