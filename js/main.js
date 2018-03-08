@@ -75,7 +75,9 @@ let emojiNames = [
         //user can press any key to start
 
         document.onkeyup = function userTry (event) {
+            if (guessesLeft > 0) {
 
+            
             // to determine which key was pressed.
             let userGuess = event.key.toLowerCase();
             guessesLeft--;
@@ -93,31 +95,50 @@ let emojiNames = [
                 console.log(dashGuess)
                 counter--;
                 console.log(counter)
-                //forWins ();
+                if (dashGuess.join("") === computerGuess) {
+                    forWins();
+                    computerGuess = emojiNames[Math.floor(Math.random() * emojiNames.length)].name;
+                    counter = computerGuess.length -1;
+                    guessesLeft = computerGuess.length +3;
+                }
                 idComputer.innerHTML = dashGuess.join(" ")
             } else {
                 console.log("incorrect")
             }
+        }
+        else {
+            countDown ();
+            // restart game
+            computerGuess = emojiNames[Math.floor(Math.random() * emojiNames.length)].name;
+            counter = computerGuess.length -1;
+            guessesLeft = computerGuess.length +3;
+
+            // set a new word
+            // reset guesses left
+
+            //reset after win and loss
+
+        }
         }
 
 //once the word has 0 letters left, then wins and losses can go up / down accordingly
 //need to get losses to update in console after guesses run out
 //need to get wins to update in console after counter runs out
         function countDown () {
-            if (guessesLeft = 0) {
+            if (guessesLeft === 0) {
             console.log("losses" + losses++)
             idLosses.innerHTML = losses++
             } 
         }
-        countDown ();
+    
+       
 
-
-        // function forWins (){
-        //     if (counter <= 0) {
-        //     console.log("wins " + wins++)
-        //     idWins.innerHTML = wins++
-        //     }
-        // }
+         function forWins (){
+        
+             console.log("wins " + wins++)
+             idWins.innerHTML = wins++
+             
+         }
 
 
 
