@@ -58,7 +58,6 @@ let emojiNames = [
         let computerGuess = emojiNames[Math.floor(Math.random() * emojiNames.length)].name;
             console.log(computerGuess);
         
-        let counter = computerGuess.length -1;
 
         let guessesLeft = computerGuess.length +3;
 
@@ -85,7 +84,7 @@ let emojiNames = [
             idGuesses.innerHTML = guessesLeft
 
             //outputs to site
-            document.getElementById("user").innerHTML = userGuess;
+            idUser.innerHTML = userGuess;
 
             if (computerGuess.indexOf(userGuess) > -1) {
                 console.log("correct guess")
@@ -93,13 +92,11 @@ let emojiNames = [
                 let correctIndex = computerGuess.indexOf(userGuess);
                 dashGuess[correctIndex] = userGuess;
                 console.log(dashGuess)
-                counter--;
-                console.log(counter)
+                //counter--;
+                //console.log(counter)
                 if (dashGuess.join("") === computerGuess) {
                     forWins();
-                    computerGuess = emojiNames[Math.floor(Math.random() * emojiNames.length)].name;
-                    counter = computerGuess.length -1;
-                    guessesLeft = computerGuess.length +3;
+                    endGame();
                 }
                 idComputer.innerHTML = dashGuess.join(" ")
             } else {
@@ -109,9 +106,7 @@ let emojiNames = [
         else {
             countDown ();
             // restart game
-            computerGuess = emojiNames[Math.floor(Math.random() * emojiNames.length)].name;
-            counter = computerGuess.length -1;
-            guessesLeft = computerGuess.length +3;
+            endGame();
 
             // set a new word
             // reset guesses left
@@ -131,15 +126,20 @@ let emojiNames = [
             } 
         }
     
-       
 
-         function forWins (){
+         function forWins () {
         
              console.log("wins " + wins++)
              idWins.innerHTML = wins++
              
          }
 
+         function endGame () {
+            computerGuess = emojiNames[Math.floor(Math.random() * emojiNames.length)].name;
+            guessesLeft = computerGuess.length +3;
+            dashGuess = [];
+           
+         }
 
 
 
@@ -156,7 +156,8 @@ let emojiNames = [
 //      }
 //     }
 // }
-    
+    //counter = computerGuess.length -1;
+    //let counter = computerGuess.length -1;
 
 //     //computer outputs _ _ _ length of holiday it chose
 
