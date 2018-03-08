@@ -1,49 +1,48 @@
    
-    //possible holidays
+//possible holidays
 
-    let emojiNames = [
-        {
-            name: 'smile',
-            length: 5,
-            pic: '../images/smile.png'
-        },
-        {
-            name: 'heart',
-            length: 5,
-            pic: '../images/heart.png'
-        },
-        {
-            name: 'fire',
-            length: 4,
-            pic: '../images/fire.png'
-        },
-        {
-            name: 'dog',
-            length: 3,
-            pic: '../images/dog.png'
-        },
-        {
-            name: 'flag',
-            length: 4,
-            pic: '../images/flag.png'
-        },
-        {
-            name: 'clap',
-            length: 4,
-            pic: '../images/clap.png'
-        },
-        {
-            name: 'cat',
-            length: 3,
-            pic: '../images/cat.png'
-        }
+let emojiNames = [
+    {
+        name: 'smile',
+        length: 5,
+        pic: '../images/smile.png'
+    },
+    {
+        name: 'heart',
+        length: 5,
+        pic: '../images/heart.png'
+    },
+    {
+        name: 'fire',
+        length: 4,
+        pic: '../images/fire.png'
+    },
+    {
+        name: 'dog',
+        length: 3,
+        pic: '../images/dog.png'
+    },
+    {
+        name: 'flag',
+        length: 4,
+        pic: '../images/flag.png'
+    },
+    {
+        name: 'clap',
+        length: 4,
+        pic: '../images/clap.png'
+    },
+    {
+        name: 'cat',
+        length: 3,
+        pic: '../images/cat.png'
+    }
         
-    ]
+]
    
         // set variables for wins, losses and guesses 
         let wins = 0;
         let losses = 0;
-        let guessesLeft = emojiNames.length +3;
         
         // variable for dashes
         let dashGuess = [];
@@ -53,6 +52,7 @@
         let idUser = document.getElementById("user");
         let idWins = document.getElementById("wins");
         let idLosses = document.getElementById("losses");
+        let idGuesses = document.getElementById("guesses");
 
         //computer choose name holiday 
         let computerGuess = emojiNames[Math.floor(Math.random() * emojiNames.length)].name;
@@ -60,23 +60,27 @@
         
         let counter = computerGuess.length -1;
 
+        let guessesLeft = computerGuess.length +3;
+
         //computer outputs _ _ _ length of holiday it chose
         for (let i = 0; i < computerGuess.length; i++) {
-            //dashGuess.push("_"); THIS WORKS
-            //document.getElementById("computer").innerHMTL = dashGuess.push("_");
-            dashGuess.push("_").idComputer
+            //this is outputting as a number, not with underscores...
+            idComputer.innerHTML = dashGuess.push("_")
         }
 
-        // var dashGuessStr = dashGuess.join(" ");
+        //output _ _ _ to HTML 
+
+        idComputer.innerHTML = dashGuess.join(" ")
         
         //user can press any key to start
 
         document.onkeyup = function userTry (event) {
+
             // to determine which key was pressed.
             let userGuess = event.key.toLowerCase();
-            // counter--;
             guessesLeft--;
             console.log(guessesLeft) 
+            idGuesses.innerHTML = guessesLeft
 
             //outputs to site
             document.getElementById("user").innerHTML = userGuess;
@@ -89,11 +93,10 @@
                 console.log(dashGuess)
                 counter--;
                 console.log(counter)
-                forWins ();
-                
+                //forWins ();
+                idComputer.innerHTML = dashGuess.join(" ")
             } else {
                 console.log("incorrect")
-                countDown ();
             }
         }
 
@@ -106,13 +109,17 @@
             idLosses.innerHTML = losses++
             } 
         }
+        countDown ();
 
-        function forWins (){
-            if (counter <= 0) {
-            console.log("wins " + wins++)
-            idWins.innerHTML = wins++
-            }
-        }
+
+        // function forWins (){
+        //     if (counter <= 0) {
+        //     console.log("wins " + wins++)
+        //     idWins.innerHTML = wins++
+        //     }
+        // }
+
+
 
 
 //  let leftOvers = computerGuess.length
@@ -178,3 +185,4 @@
 
 
 //  }
+// var dashGuessStr = dashGuess.join(" ");
