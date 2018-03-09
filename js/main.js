@@ -5,37 +5,37 @@
         {
             name: 'smile',
             length: 5,
-            pic: '../images/smile.png'
+
         },
         {
             name: 'heart',
             length: 5,
-            pic: '../images/heart.png'
+            
         },
         {
             name: 'fire',
             length: 4,
-            pic: '../images/fire.png'
+            
         },
         {
             name: 'dog',
             length: 3,
-            pic: '../images/dog.png'
+            
         },
         {
             name: 'flag',
             length: 4,
-            pic: '../images/flag.png'
+            
         },
         {
             name: 'clap',
             length: 4,
-            pic: '../images/clap.png'
+            
         },
         {   
             name: 'cat',
             length: 3,
-            pic: '../images/cat.png'
+            
         }
         
     ]
